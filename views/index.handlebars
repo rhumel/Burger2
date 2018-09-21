@@ -1,0 +1,45 @@
+<div class="container">
+
+    <h2 style="float:left;color:antiquewhite;"><strong>Eat-DA-Burger</strong></h2>
+    <hr>
+    <br>
+    <br>
+    <div class="form-group row">
+        <div class="col-xs-4">
+            <label for="ex3">Enter your Burger. Then press submit button.</label>
+            <input class="form-control" id="ex3" type="text">
+        </div>
+    </div>
+    </form>
+    <button type="submit" id="submit" class="btn btn-info btn-danger">Submit</button>
+
+    <br>
+    <div class="row">
+        <div class="col-4">
+            <ul>
+                {{!-- burgers have not been eaten, --}} {{!-- so the burgers should be listed --}} {{#each burgers}} {{#unless this.devoured}}
+                <div class="row">
+                    <div class="col">
+                        <p>{{this.burger_name}}</p>
+                    </div>
+                    <div class="col">
+                        <button class="devour-it" data-id="{{this.id}}" data-eaten="{{this.devoured}}">
+                            Devour It!
+                        </button>
+                    </div>
+                </div>
+
+                {{/unless}} {{/each}}
+
+            </ul>
+
+            <br>
+            <hr><br>
+            <h3>Devoured</h3>
+            <ul>
+                {{#each burgers}} {{#if this.devoured}}
+                <p>{{this.burger_name}}</p>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+    </div>
